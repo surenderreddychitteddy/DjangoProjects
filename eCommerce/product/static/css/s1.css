@@ -1,0 +1,83 @@
+        nav ul{
+            list-style-type: none;
+            /*padding: 100px;*/
+
+            margin: 0;
+            padding-left: 40%;
+        }
+        nav{
+            overflow: hidden;
+
+          padding :20px;
+        }
+        nav ul li{
+            float: left;
+                        background-color: #090808;
+
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            padding: 20px 24px;
+            display: block;
+        }
+        nav ul li a:hover{
+            background-color: #E06382;
+        }
+                li a.active{
+            background-color: #9F304B;
+}
+h1{
+	text-align: center;
+}
+.main-footer{
+   /*background-color: #333333;*/
+    text-align: center;
+    padding-top: 100px;
+    color: #9F304B;
+
+}
+/* .image{
+            border: 2px solid green;
+            float: left;
+            width: 300px;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .image:hover{
+            cursor: pointer; /* for hand symbol */
+/*            box-shadow: 5px 5px 5px green;
+        }
+
+*/        
+        .desc{
+            text-align: center;
+            padding: 5px;
+            color: green;
+        }
+
+            .image{
+                float: left;
+            border: 2px solid green;
+                        width: 300px;
+                                    margin: 5px;
+            padding: 10px;
+            border-radius: 10px;
+
+
+
+    }
+            .image:hover{
+            cursor: pointer; /* for hand symbol */
+            box-shadow: 5px 5px 5px green;
+        }
+
+    img{
+                    width: 300px;
+                    height: auto;
+            border-radius: 10px;
+
+
+    }

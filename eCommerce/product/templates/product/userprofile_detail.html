@@ -1,0 +1,48 @@
+
+{% extends 'product/base.html' %}
+
+
+	  {% load static %}
+
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
+</head>
+<body>
+		            {% block header %}
+		            	<header>
+		<h1>wellcome to {{request.session.user.username}}</h1>
+	</header>
+
+
+<nav>
+	<ul>
+		<li>
+			<a href="/produts/">SHOWPRODUCTS</a>
+		</li>
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+						<li>
+			<a href="/contus/">CountUs</a>
+		</li>
+
+
+	</ul>
+
+</nav>
+{%endblock%}
+{% block content %}
+
+
+	<div class="continer">
+	<center>
+		username:{{object.username}}<br><br>
+email:{{object.email}}<br><br>
+phone:{{object.phone}}<br><br>
+
+
+	</center>
+	</div>
+ {% endblock %}
+

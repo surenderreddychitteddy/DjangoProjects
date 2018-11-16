@@ -1,0 +1,75 @@
+	
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	  {% load static %}
+
+	<title></title>
+		<style>
+		.right{
+            float: left;
+            width: 300px;
+            margin: 5px;
+            padding: 5px;
+            padding-left: 450px;
+		}
+		img{
+			            width: 300px;
+            height: auto;
+                        border: 2px solid green;
+
+		}
+		.left{
+            padding: 10px;
+            color: green;
+		}
+	</style>
+
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s1.css'%}">
+
+</head>
+<body>
+			            	<header>
+		<h1>wellcome to {{request.session.user.username}}</h1>
+	</header>
+
+
+<nav>
+	<ul>
+		<li>
+			<a href="/produts/">SHOWPRODUCTS</a>
+		</li>
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+						<li>
+			<a href="/contus/">CountUs</a>
+		</li>
+
+
+	</ul>
+
+</nav>
+
+	<div class="right" style="text-align: center;">
+	<img src="/media/{{object.img}}" width="50px" height="50px">
+	<div class="left">
+{{object.title}}<br>
+{{object.description}}<br>
+{{object.price}}<br>
+<a href="/addcart/{{object.id}}">AddCART</a>
+
+</div>
+
+</div>
+</body>
+</html>
+
+
+
+

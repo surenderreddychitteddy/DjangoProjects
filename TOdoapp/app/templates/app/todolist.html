@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>
+<!-- <a href="/create/">ADDnew</a>
+ -->	</h1>
+	<a href="/getfile/">DownloadCsvFile</a>
+
+		<form>
+			Name: <input type="text" name="title" help="Enter Titlename to  search">
+			<input type="submit" value="search Title">
+		</form>
+	<table>
+		
+		<thead>
+			<th>Title</th>
+						<th>Description</th>
+			<th>datetime</th>
+			<th>Status</th>
+						<th>Createdat</th>
+			<th>Modifiedat</th>
+
+			<th>Edit</th>
+			<th>Deleet</th>
+
+		</thead>
+		<tbody>
+
+			        {% for i in todo_list %}
+			        <tr>
+			        	<td>{{i.Title}}</td>
+<td>{{i.Description}}</td>
+<td>{{i.datetime}}</td>
+<td>{{i.Status}}</td>
+<td>{{i.Createdat}}</td>
+<td>{{i.Modifiedat}}</td>
+
+<td><a href="/delete/{{i.id}}">delete</a></td>
+<td><a href="/update/{{i.id}}">update</a></td>
+
+</tr>
+    {%endfor%}
+
+
+		</tbody>
+
+	</table>
+
+   </body>
+</html>

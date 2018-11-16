@@ -1,0 +1,69 @@
+{% extends 'product/base.html' %}
+
+
+	  {% load static %}
+
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
+</head>
+<body>
+		            {% block header %}
+		            	<header>
+		<h1>wellcome to {{request.session.user.username}}</h1>
+	</header>
+
+
+<nav>
+	<ul>
+		<li>
+			<a href="/produts/">SHOWPRODUCTS</a>
+		</li>
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+
+	</ul>
+
+</nav>
+{%endblock%}
+{% block content %}
+
+
+	<div class="continer">
+		<img class="slider" src="{%static 'img/31.jpg'%}" >
+        <img  class="slider" src="{%static 'img/d.jpg'%}" >
+        <img class="slider" src="{%static 'img/images.jpg'%}">
+        <img class="slider" src="{%static 'img/d1.jpg'%}">
+                <img class="slider" src="{%static 'img/d2.jpg'%}">
+
+
+        <button class="btn" id="btn1" onclick="pluseindex(-1)">&#10094;</button>
+        <button class="btn" id="btn2" onclick="pluseindex(1)">&#10095;</button>
+
+	</div>
+<script>
+	
+	var index=1;
+		showimage(1);
+		function pluseindex(n){
+			index=index+1;
+
+showimage(index);
+		}
+
+	function  showimage(n){
+		var i;
+
+		var x=document.getElementsByClassName("slider");
+		if(n>x.length){
+			index=1};
+		if (n<1){index=x.length};
+			for(i=0;i<x.length;i++){
+				x[i].style.display="none";
+			}
+        x[index-1].style.display="block";
+	}
+</script>
+ {% endblock %}
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  {% load static %}
+
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s1.css'%}">
+
+</head>
+<body>
+			            	<header>
+		<h1>wellcome to {{request.session.user.username}}</h1>
+	</header>
+
+		<form>
+			Name: <input type="text" name="name" help="Enter name to search">
+			<input type="submit" value="search Productname" >
+		</form>
+
+<nav>
+	<ul>
+		<li>
+			<a href="/produts/">SHOWPRODUCTS</a>
+		</li>
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+						<li>
+		</li>
+
+
+	</ul>
+
+</nav>
+{%for i in lp%}
+
+
+    <div class="image">
+	<img src="/media/{{i.img}}" width="600" height="400"><br>
+        <div class="desc">
+        		price:{{i.price}}
+		category:{{i.category}}
+	<a href="/p/{{i.id}}/">viwe</a>
+
+        </div>
+    </div>
+
+{%endfor%}
+</div>
+</body>
+</html>
+
+
+<!-- {%for i in lp%}
+    <div class="product">
+	<img src="/media/{{i.img}}" width="600" height="400"><br>
+	<div class="disc" style="text-align: center;">
+	price:{{i.price}}
+	<br>
+		category:{{i.category}}
+
+	<a href="/p/{{i.id}}/">viwe</a>
+
+
+</div>
+
+
+</div>
+
+<br/>
+ --><!-- {%endfor%}
+</div>
+</body>
+</html> -->
+
+<!--     <div class="image">
+        <img src="img/gallery1.jpeg" width="600" height="400">
+        <div class="desc">Image 1</div>
+    </div>
+ -->
+
+

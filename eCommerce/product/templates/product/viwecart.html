@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+	h1{
+		font-family: sans-serif;
+    color: #9F304B;
+	}
+	a{
+		text-align: none;
+				   color: #9F304B;
+
+		font-family: sans-serif;
+
+	}
+	.main-footer{
+   /*background-color: #333333;*/
+    text-align: center;
+    padding-top: 100px;
+    color: #9F304B;
+
+}
+
+</style>
+</head>
+<body>
+			           <center> 	<header>
+		<h1>wellcome to {{request.session.user.username}}</h1>
+	</header>
+</center>
+
+
+	<div class="container">
+	<table class="table">
+		<thead>
+			<th>item</th>
+			<th>price</th>
+		</thead>
+<tbody>
+	{%for item in cart.product.all%}
+	<tr>
+		<td>{{item}}</td>
+		
+  <td>{{item.price}}</td>
+    <td><a class="active" href="/addcart/{{item.id}}">remove</a></td>
+
+
+	</tr>
+{%endfor%}
+
+
+</tbody>
+<tfoot>
+	<tr>
+		<td></td>
+		<td>{{cart.total}}</td>
+	</tr>
+</tfoot>
+					</table>
+</div>
+<div style="text-align: center;">
+	<a  class="active"href="/produts/">ShowProdutsList</a>
+
+	</div>
+
+	    <section>
+        <footer class="main-footer" ">
+        <h2><b>All Rights Reserved :  PavanKalevaru</b></h2>
+    </footer>
+</section>
+
+</body>
+</html>
+
+
