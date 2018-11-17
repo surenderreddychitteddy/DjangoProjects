@@ -19,18 +19,9 @@ def todo_list(request):
 def edit(request,pk):
 	todo_list=todolist.objects.get(pk=pk)
 	return render(request,"app/todolist.html",{"todo_list":todo_list})
-def Create(request):
-	form =createfrom()
-	if request.method=="POST":
-		form=createfrom(request.POST)
-		if form.is_valid():
-			data=form.cleaned_data
-			td=todolist(**data)
-			td.save()
-			return redirect(todo_list)
+def Home(request):
 
-
-	return render(request,"app/create.html",{"form":form})
+	return render(request,"app/home.html")
 def getfile(request):  
     response = HttpResponse(content_type='text/csv')  
     response['Content-Disposition'] = 'attachment; filename="file.csv"'  

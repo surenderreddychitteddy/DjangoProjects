@@ -1,0 +1,106 @@
+==========================
+      To create a Django project, we can use the following command
+     django-admin startproject Todoapp
+A Django project contains the following packages and files create:
+
+ manage.py:
+ 	 It is a command-line used  to interact with the project
+
+__init__.py: 
+	It is an empty file that tells to the Python that this directory should be considered as a Python package.
+settings.py: 
+	This file is used to configure application settings such as database connection, static files linking etc.
+
+urls.py: 
+	This file contains the listed URLs of the application. 
+wsgi.py: 
+	It is used to your project movied to production environment
+========================================================================
+go to project folder
+     To create an app, we can use the following command.
+
+      python manage.py startapp app  
+A Django app  contains the following  folder and files create:
+ migrations folder :
+ viwes.py:
+   it is used to the implement business logic
+ models.py :
+    the model help to handle database
+ admin.py:
+  it is help to interact with admin interface
+  ================================================================================ 
+Django follows MVT pattern(Model View Template)
+Model:
+     Model is defined in Models.py file. 
+     Each models class map to a Single database table
+
+     Each attribute map with to database column
+   example  we are creating a model todolist which has contined follwing fields
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+ 
+# Create your models here.
+class todolist(models.Model):
+	Status_type=[('Inprogress','In progress'),('completed','completed'),('pending','pending')]
+
+	Title=models.CharField(max_length=20)
+	Description=models.CharField(max_length=225)
+	datetime=models.DateTimeField(auto_now_add=True,auto_now=False)
+	Status=models.CharField(max_length=250,choices=Status_type)
+	Createdat=models.ForeignKey(User)
+	Modifiedat=models.DateTimeField(auto_now_add=False,auto_now=True)
+
+# by default table created this type(app_todolist)applicationname_modelclassname
+
+	class Meta:
+		db_table="todolist" # this is used create custome table name
+
+	def __str__(self):
+		return self.Title
+# once you have defined your models .open the settings .py file 
+  INSTALLED_APPS = [  
+    #...  
+    'app',  
+    #...  
+]  
+
+#then to run manage.py makemigrations:
+             which is responsible for creating new migrations based on the changes you have made to your models.
+python manage.py magrate:
+     which is responsible for applying and unapplying migrations.
+
+viwes:
+  All the view function are created inside the views.py file of the Django app.
+
+  it used to excute the bussines login and interact with models to cury the data and render to the templates
+
+Templates:
+   The Template is a presentation layer which handles User Interface part completely
+
+
+RequestResponceLifeCyle:
+   Whenever the request comes in it is handled by the Request middlewares. We can have multiple middlewares. we can find it in project settings(settings.py). Django request middlewares follows the order while processing the request.
+     After request processed by the middleware and it take the url path from the request
+
+After matching the URL path  the request will be submitted to the  corespanding View which is associated with the URL.
+
+the Correspended views proces the bussines logic and   it used to excute the bussines login and interact with models to cury the data and render to the templates
+
+
+
+Again the request will send back to the Response middlewares to process it. Response middlewares will process the request and sending it back to the browser.  After the browser will process and display it to the end user.
+
+
+
+
+
+
+
+
+
+
+
+

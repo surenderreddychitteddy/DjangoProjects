@@ -20,6 +20,8 @@ from django.views.generic import UpdateView,DeleteView
 from app. models import todolist
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+            url(r'^$', views.Home),
+
         url(r'^todolist/', views.todo_list),
         url(r'^update/(?P<pk>[0-9]+)', UpdateView.as_view(model=todolist, fields="__all__",
             success_url="/todolist/")),
