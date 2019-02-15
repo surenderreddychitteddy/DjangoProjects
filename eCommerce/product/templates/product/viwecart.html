@@ -1,13 +1,130 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+	  {% load static %}
+
 	<title></title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s2.css'%}">
+
+
+</head>
+<body>
+
+<nav>
+	<ul>
+		  <li class="dropdown">
+						<a href="//">Shop By  Category</a>
+
+                <div class="dropdown_list">
+                    <a href="/cake/">Cake</a>
+                    <a href="//">Chocolate</a>
+                    <a href="/Gift/">Gift</a>
+                </div>
+            </li>
+
+
+
+ 				  <li class="dropdown">
+						<a href="//">Shop By  Relation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Parents</a>
+                    <a href="#">GirlFriend</a>
+                    <a href="#">BoyFriend</a>
+                </div>
+            </li>
+
+		  <li class="dropdown">
+						<a href="//">Shop By  Occation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Sports</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Arts</a>
+                    <a href="#">Others</a>
+                </div>
+            </li>
+
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+		+				<li>
+							<a href=""> Hello to {{request.session.user.username}}</a>
+		</li>
+
+
+	</ul>
+
+</nav>
+</div>
+
+	<div class="container">
+		<center>
+	<table class="table">
+		<thead style="padding: 10px;">
+			<th>item</th>
+			<th>price</th>
+
+
+		</thead>
+<tbody>
+	{%for item in cart.cake.all%}
+	<tr>
+		<td>{{item}}</td>
+		
+  <td>{{item.price}}</td>
+    <td><a class="active" href="/addcart/{{item.id}}">remove</a></td>
+
+
+	</tr>
+{%endfor%}
+
+
+</tbody>
+<tfoot>
+	<tr>
+		<td>TOTAL</td>
+		<td>{{cart.total}}</td>
+	</tr>
+</tfoot>
+					</table>
+				</center>
+</div>
+<div style="text-align: center;">
+	<a  class="active"href="/cake/">ShowProdutsList</a>
+	<a  class="active"href="/create/">order</a>
+
+	</div>
+
+	    <section>
+        <footer class="main-footer" ">
+        <h2><b>All Rights Reserved :  PavanKalevaru</b></h2>
+    </footer>
+</section>
+
+</body>
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	  {% load static %}
+
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s2.css'%}">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
-	h1{
+/*	h1{
 		font-family: sans-serif;
     color: #9F304B;
 	}
@@ -18,7 +135,7 @@
 		font-family: sans-serif;
 
 	}
-	.main-footer{
+*/	.main-footer{
    /*background-color: #333333;*/
     text-align: center;
     padding-top: 100px;
@@ -29,20 +146,63 @@
 </style>
 </head>
 <body>
-			           <center> 	<header>
-		<h1>wellcome to {{request.session.user.username}}</h1>
-	</header>
-</center>
+<nav>
+	<ul>
+		  <li class="dropdown">
+						<a href="//">Shop By  Category</a>
+
+                <div class="dropdown_list">
+                    <a href="/cake/">Cake</a>
+                    <a href="//">Chocolate</a>
+                    <a href="/Gift/">Gift</a>
+                </div>
+            </li>
 
 
-	<div class="container">
+
+ 				  <li class="dropdown">
+						<a href="//">Shop By  Relation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Parents</a>
+                    <a href="#">GirlFriend</a>
+                    <a href="#">BoyFriend</a>
+                </div>
+            </li>
+
+		  <li class="dropdown">
+						<a href="//">Shop By  Occation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Sports</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Arts</a>
+                    <a href="#">Others</a>
+                </div>
+            </li>
+
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+						<li>
+							<a href=""> Hello to {{request.session.user.username}}</a>
+		</li>
+
+
+	</ul>
+
+</nav>
+
+ -->
+<!-- 	<div class="container">
 	<table class="table">
 		<thead>
 			<th>item</th>
 			<th>price</th>
 		</thead>
 <tbody>
-	{%for item in cart.product.all%}
+	{%for item in cart.cake.all%}
 	<tr>
 		<td>{{item}}</td>
 		
@@ -64,7 +224,7 @@
 					</table>
 </div>
 <div style="text-align: center;">
-	<a  class="active"href="/produts/">ShowProdutsList</a>
+	<a  class="active"href="/cake/">ShowProdutsList</a>
 
 	</div>
 
@@ -78,3 +238,4 @@
 </html>
 
 
+ -->

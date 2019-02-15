@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+            body{
+            margin: 0;
+            font-family:Arial,sans-serif;
+        }
+
+
+        nav ul{
+            list-style-type: none;
+            /*padding: 100px;*/
+
+            margin: 0;
+            padding-left: 30%;
+        }
+        nav{
+            overflow: hidden;
+
+          padding :20px;
+        }
+        nav ul li{
+            float: left;
+                        background-color: #090808;
+
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            padding: 20px 24px;
+            display: block;
+        }
+        nav ul li a:hover{
+            background-color: #E06382;
+        }
+                li a.active{
+            background-color: #9F304B;
+}
+
+        .dropdown_list{
+            background-color: lightgray;
+            position: absolute; 
+            display: none; }
+.dropdown_list a{
+            color: black;
+        }
+
+        .dropdown_list a:hover{
+            color: white;
+        }
+
+        .dropdown:hover .dropdown_list{
+            display: block;
+        }
+.right {
+    width: 80%;
+    float: left;
+}
+.left{
+    width: 20%;
+    float: left;
+}
+        .button{
+            /*background-color: green;*/
+            color: #9F304B;
+            text-decoration: none;
+            border: none;
+            font-family: Arial,sans-serif;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .btn{
+            color: white;
+            text-decoration: none;
+            border: none;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .danger{
+            background-color: red;
+        }
+
+
+	.Enquiry-section{
+    width: 1100px;
+    height: auto;
+    margin: auto;
+}
+
+.Enquiry-article{
+    text-align: center;
+}
+
+.Enquiry-article h2{
+    color: #2c8d3a;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.Enquiry-article p{
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+input[type='text'] , input[type='email']{
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 7px;
+    border: 2px solid #2c8d3a;
+    border-radius: 10px;
+}
+
+.Enquiry-article textarea{
+    font-size: 26px;
+    border: 2px solid #2c8d3a;
+    border-radius: 7px;
+    text-align: center;
+    font-family: Arial,sans-serif;
+}
+
+input[type='submit']{
+    background-color: #2c8d3a;
+    color: white;
+    border: none;
+    font-size: 25px;
+    padding: 10px 180px;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+
+
+
+
+</style>
+</head>
+<body>       <header>                      
+
+
+    <h4 style="padding-left:168px;">Pavan TechInfo</h4>
+
+</header>                
+
+ <div class="left">   
+<!--                       {% load static%}
+        <img src="{% static 'logo.png'%}" style="padding-left:150px;padding-top: 18px;">
+ -->
+    </div>
+
+
+        <div class="right">   
+
+
+
+    <nav>
+<ul>
+            <li>
+                <a href="/home/" >Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">About</a>
+
+                <div class="dropdown_list">
+                    <a href="/Introduction/">Introduction</a>
+                    <a href="/Vision/">Vision&Mission</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Solution</a>
+
+                <div class="dropdown_list">
+                    <a href="/UMS/">University Management System</a>
+                </div>
+            </li>
+            
+            <li>
+                <a href="/Enquiry/">Enquiry</a>
+            </li>
+            <li>
+                <a href="/ContactUs/" class="active">Contact Us</a>
+            </li>
+                        <li>
+                <a href="/EmplyoeeLogin/">EmplyoeeLogin Us</a>
+            </li>
+
+        </ul>
+    </nav>
+</div >
+<div>
+    </div>
+    <br><br><br><br> <br><br>
+
+<section class="Enquiry-section">
+    <article class="Enquiry-article">
+        <h2>Request a Quote</h2>
+        <p>Please fill in the below details</p>
+        <form>
+            <input type="text" placeholder="Your Name" size="30">
+            <br>
+            <input type="email" placeholder="Your Email" size="30">
+            <br>
+            <input type="text" placeholder="Your Subject" size="30">
+            <br>
+            <input type="text" placeholder="Your phoneNumber" size="30">
+            <br>
+
+            <textarea rows="4" cols="32" placeholder="Your Message"></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </article>
+</section>
+
+</body>
+</html>

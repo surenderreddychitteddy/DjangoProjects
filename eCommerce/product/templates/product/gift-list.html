@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+		  {% load static %}
+
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s2.css'%}">
+
+</head>
+<body>
+	<nav>
+	<ul>
+		  <li class="dropdown">
+						<a href="//">Shop By  Category</a>
+
+                <div class="dropdown_list">
+                    <a href="/cake/">Cake</a>
+                    <a href="//">Chocolate</a>
+                    <a href="/Gift/">Gift</a>
+                </div>
+            </li>
+
+
+
+ 				  <li class="dropdown">
+						<a href="//">Shop By  Relation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Parents</a>
+                    <a href="#">GirlFriend</a>
+                    <a href="#">BoyFriend</a>
+                </div>
+            </li>
+
+		  <li class="dropdown">
+						<a href="//">Shop By  Occation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Sports</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Arts</a>
+                    <a href="#">Others</a>
+                </div>
+            </li>
+
+				<li>
+					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
+
+		</li >
+						<li>
+							<a href=""> Hello to {{request.session.user.username}}</a>
+		</li>
+
+
+	</ul>
+
+</nav>
+
+	<h1>GIFTS</h1>
+{%for i in list_data %}
+
+
+    <div class="image">
+	<img src="/media/{{i.img}}" width="600" height="400"><br>
+        <div class="desc">
+        	{{i.price}}Rs
+		{{i.description}}
+				{{i.weight}}
+
+    <a href="/showgift/{{i.id}}/">viwe</a>
+        </div>
+    </div>
+
+{%endfor%}
+
+</body>
+</html>

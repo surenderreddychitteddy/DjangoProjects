@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UNIVERSITY MANAGEMENT SYSTEM</title>
+    <style >
+        .column {
+    float: left;
+    width: 45%;
+    padding: 20px;
+    height: 300px; 
+}
+        body{
+            margin: 0;
+            font-family:Arial,sans-serif;
+        }
+
+
+        nav ul{
+            list-style-type: none;
+            /*padding: 100px;*/
+
+            margin: 0;
+            padding-left: 30%;
+        }
+        nav{
+            overflow: hidden;
+
+          padding :20px;
+        }
+        nav ul li{
+            float: left;
+                        background-color: #090808;
+
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            padding: 20px 24px;
+            display: block;
+        }
+        nav ul li a:hover{
+            background-color: #E06382;
+        }
+                li a.active{
+            background-color: #9F304B;
+}
+
+        .dropdown_list{
+            background-color: lightgray;
+            position: absolute; 
+            display: none; }
+.dropdown_list a{
+            color: black;
+        }
+
+        .dropdown_list a:hover{
+            color: white;
+        }
+
+        .dropdown:hover .dropdown_list{
+            display: block;
+        }
+.right {
+    width: 80%;
+    float: left;
+}
+.left{
+    width: 20%;
+    float: left;
+}
+        .button{
+            /*background-color: green;*/
+            color: #9F304B;
+            text-decoration: none;
+            border: none;
+            font-family: Arial,sans-serif;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .btn{
+            color: white;
+            text-decoration: none;
+            border: none;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .danger{
+            background-color: red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+     <header>                      
+
+
+<!--     <h4 style="padding-left:168px;">Pavan Info Tech </h4>
+ --><!--             <p style="padding-left:180px;">UNDER </p>
+ -->
+
+</header>                
+
+ <div class="left">   
+                      {% load static%}
+
+     <h4 style="padding-left:150px;padding-top: 18px;">Pavan Info Tech </h4>
+
+    </div>
+
+
+        <div class="right">   
+
+
+
+    <nav>
+<ul>
+            <li>
+                <a href="/home/" >Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">About</a>
+
+                <div class="dropdown_list">
+                    <a href="/Introduction/">Introduction</a>
+                    <a href="/Vision/">Vision&Mission</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Solution</a>
+
+                <div class="dropdown_list">
+                    <a href="/UMS/">University Management System</a>
+                </div>
+            </li>
+            
+<!--             <li>
+                <a href="/Enquiry/">Enquiry</a>
+            </li>
+ -->            <li>
+                <a href="/ContactUs/" class="active">Contact Us</a>
+            </li>
+                        <li>
+                <a href="/EmplyoeeLogin/">EmplyoeeLogin Us</a>
+            </li>
+
+        </ul>
+    </nav>
+</div >
+<div>
+    </div>
+    <br><br><br><br> <br><br>
+
+
+    <center>
+    <h1 style="padding-left: 30%;"><b>UNIVERSITY MANAGEMENT SYSTEM:</b></h1>
+</center>
+    {% load static%}
+    <div class="column">
+        <img src="{% static 'img/UMS2.png'%}" style="padding-top:25px; width: 80%; padding-left: 120px; ">
+
+    </div><br>
+    <div class="column">
+        <ul>
+            <li>Getting Professional Identity Through University Management System Digitalizg Total     College</li><br>
+<li>UNIVERSITY ADMINISTRATOR has the functionality of registering new colleges and courses.</li><br>
+
+<li>COLLEGE ADMINISTATOR includes the creating department, course for each department, for each subject you should have to allocate a faculty.</li><br>
+
+<li>USER in this project the USER includes the two either lecturer or student. The faculty will enter the attendance of the students and also marks.</li>
+<br>
+<li>The students will check their attendance and marks but they can’t modify or change anything. </li> 
+<br>
+</ul>
+
+</div>
+</body>
+</html>

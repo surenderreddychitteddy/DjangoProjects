@@ -1,9 +1,8 @@
         nav ul{
             list-style-type: none;
-            /*padding: 100px;*/
-
+\
             margin: 0;
-            padding-left: 40%;
+            padding-left: 20%;
         }
         nav{
             overflow: hidden;
@@ -37,47 +36,3 @@ h1{
     color: #9F304B;
 
 }
-/* .image{
-            border: 2px solid green;
-            float: left;
-            width: 300px;
-            margin: 5px;
-            padding: 5px;
-            border-radius: 10px;
-        }
-
-        .image:hover{
-            cursor: pointer; /* for hand symbol */
-/*            box-shadow: 5px 5px 5px green;
-        }
-
-*/        
-        .desc{
-            text-align: center;
-            padding: 5px;
-            color: green;
-        }
-
-            .image{
-                float: left;
-            border: 2px solid green;
-                        width: 300px;
-                                    margin: 5px;
-            padding: 10px;
-            border-radius: 10px;
-
-
-
-    }
-            .image:hover{
-            cursor: pointer; /* for hand symbol */
-            box-shadow: 5px 5px 5px green;
-        }
-
-    img{
-                    width: 300px;
-                    height: auto;
-            border-radius: 10px;
-
-
-    }

@@ -1,69 +1,67 @@
-{% extends 'product/base.html' %}
-
-
+<!DOCTYPE html>
+<html>
+<head>
 	  {% load static %}
 
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s2.css'%}">
+
 </head>
 <body>
-		            {% block header %}
-		            	<header>
-		<h1>wellcome to {{request.session.user.username}}</h1>
-	</header>
-
 
 <nav>
 	<ul>
-		<li>
-			<a href="/produts/">SHOWPRODUCTS</a>
-		</li>
+		  <li class="dropdown">
+						<a href="//">Shop By  Category</a>
+
+                <div class="dropdown_list">
+                    <a href="/cake/">Cake</a>
+                    <a href="//">Chocolate</a>
+                    <a href="/Gift/">Gift</a>
+                </div>
+            </li>
+
+
+
+ 				  <li class="dropdown">
+						<a href="//">Shop By  Relation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Parents</a>
+                    <a href="#">GirlFriend</a>
+                    <a href="#">BoyFriend</a>
+                </div>
+            </li>
+
+		  <li class="dropdown">
+						<a href="//">Shop By  Occation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Sports</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Arts</a>
+                    <a href="#">Others</a>
+                </div>
+            </li>
+
 				<li>
 					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
 
 		</li >
+						<li>
+							<a href=""> Hello  {{request.session.user.username}}</a>
+		</li>
+
+                        <li>
+                            <a href="/lOGOUT/">lOGOUT</a>
+        </li>
+
 
 	</ul>
 
 </nav>
-{%endblock%}
-{% block content %}
+</div>
+</body>
+</html>
 
-
-	<div class="continer">
-		<img class="slider" src="{%static 'img/31.jpg'%}" >
-        <img  class="slider" src="{%static 'img/d.jpg'%}" >
-        <img class="slider" src="{%static 'img/images.jpg'%}">
-        <img class="slider" src="{%static 'img/d1.jpg'%}">
-                <img class="slider" src="{%static 'img/d2.jpg'%}">
-
-
-        <button class="btn" id="btn1" onclick="pluseindex(-1)">&#10094;</button>
-        <button class="btn" id="btn2" onclick="pluseindex(1)">&#10095;</button>
-
-	</div>
-<script>
-	
-	var index=1;
-		showimage(1);
-		function pluseindex(n){
-			index=index+1;
-
-showimage(index);
-		}
-
-	function  showimage(n){
-		var i;
-
-		var x=document.getElementsByClassName("slider");
-		if(n>x.length){
-			index=1};
-		if (n<1){index=x.length};
-			for(i=0;i<x.length;i++){
-				x[i].style.display="none";
-			}
-        x[index-1].style.display="block";
-	}
-</script>
- {% endblock %}
 

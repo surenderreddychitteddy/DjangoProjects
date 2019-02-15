@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Introduction</title>
+	<style >
+		.column {
+    float: left;
+    width: 45%;
+    padding: 10px;
+    height: 300px; 
+}
+{% load static%}
+        body{
+            margin: 0;
+            font-family:Arial,sans-serif;
+               background-image: url("{% static 'img/l.jpg'%}");
+        }
+
+
+        nav ul{
+            list-style-type: none;
+            /*padding: 100px;*/
+
+            margin: 0;
+            padding-left: 30%;
+        }
+        nav{
+            overflow: hidden;
+
+          padding :20px;
+        }
+        nav ul li{
+            float: left;
+                        background-color: #090808;
+
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            padding: 20px 24px;
+            display: block;
+        }
+        nav ul li a:hover{
+            background-color: #E06382;
+        }
+                li a.active{
+            background-color: #9F304B;
+}
+
+        .dropdown_list{
+            background-color: lightgray;
+            position: absolute; 
+            display: none; }
+.dropdown_list a{
+            color: black;
+        }
+
+        .dropdown_list a:hover{
+            color: white;
+        }
+
+        .dropdown:hover .dropdown_list{
+            display: block;
+        }
+.right {
+    width: 80%;
+    float: left;
+}
+.left{
+    width: 20%;
+    float: left;
+}
+        .button{
+            /*background-color: green;*/
+            color: #9F304B;
+            text-decoration: none;
+            border: none;
+            font-family: Arial,sans-serif;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .btn{
+            color: white;
+            text-decoration: none;
+            border: none;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .danger{
+            background-color: red;
+        }
+.login-form {
+            text-align:center;
+                    /*background-image: url("https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif");*/
+                    width: 500px;
+                    padding:20px;
+                    padding-top: 30px;
+                    margin: 0 auto;
+                    border: 5px solid red;
+                                font-family: Arial,sans-serif;
+
+}
+input[type='text'],input[type="password"]{
+    text-align: center;
+    height: 30px;
+    margin:  20px;
+    border: 3px solid green;
+    border-radius: 10px;
+}
+input[type='text'],input[type='password']:hover{
+    cursor: pointer;
+    box-shadow: 2px  2px 2px solid green;
+}
+#submit{
+    text-align: center;
+    background-color: seagreen;
+    color: white;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 10px;
+}
+#submit:hover{
+        cursor: pointer;
+/*border-bottom: 10px solid red;*/
+}
+
+
+
+	</style>
+</head>
+<body>
+     <header>                      
+
+
+    <h4 style="padding-left:168px;">PavanTechInfo</h4>
+
+</header>                
+
+ <div class="left">   
+                      {% load static%}
+<!--         <img src="{% static 'logo.png'%}" style="padding-left:150px;padding-top: 18px;">
+ -->
+    </div>
+
+
+        <div class="right">   
+
+
+
+    <nav>
+<ul>
+            <li>
+                <a href="/home/" >Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">About</a>
+
+                <div class="dropdown_list">
+                    <a href="/Introduction/">Introduction</a>
+                    <a href="/Vision/">Vision&Mission</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Solution</a>
+
+                <div class="dropdown_list">
+                    <a href="/UMS/">University Management System</a>
+                </div>
+            </li>
+            
+<!--             <li>
+                <a href="/Enquiry/">Enquiry</a>
+            </li> -->
+            <li>
+                <a href="/ContactUs/" class="active">Contact Us</a>
+            </li>
+                        <li>
+                <a href="/EmplyoeeLogin/">EmplyoeeLogin Us</a>
+            </li>
+
+        </ul>
+    </nav>
+</div >
+<div>
+    </div>
+    <br><br><br><br> <br><br><br><br>
+<div class="login-form" >
+    <center>
+    <h1>wellcome EmplyoeeLogin</h1>
+        <form method="POST">
+            {%csrf_token%}
+        <input type="text" placeholder="Enter UserName" size="15" name="username">
+        <br>
+        <input type="password" placeholder="Enter Password" size="15" name="password">
+        <br>
+        <input type="submit" value=" Submit" id="submit">
+
+    </form>
+
+</center>
+
+</div>
+
+
+
+</body>
+</html>

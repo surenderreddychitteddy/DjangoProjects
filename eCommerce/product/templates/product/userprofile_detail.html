@@ -1,39 +1,63 @@
 
-{% extends 'product/base.html' %}
-
-
+<!DOCTYPE html>
+<html>
+<head>
 	  {% load static %}
 
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
+		<link rel="stylesheet" type="text/css" href="{%static 'css/s2.css'%}">
+
 </head>
 <body>
-		            {% block header %}
-		            	<header>
-		<h1>wellcome to {{request.session.user.username}}</h1>
-	</header>
-
 
 <nav>
 	<ul>
-		<li>
-			<a href="/produts/">SHOWPRODUCTS</a>
-		</li>
+		  <li class="dropdown">
+						<a href="//">Shop By  Category</a>
+
+                <div class="dropdown_list">
+                    <a href="/cake/">Cake</a>
+                    <a href="//">Chocolate</a>
+                    <a href="/Gift/">Gift</a>
+                </div>
+            </li>
+
+
+
+ 				  <li class="dropdown">
+						<a href="//">Shop By  Relation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Parents</a>
+                    <a href="#">GirlFriend</a>
+                    <a href="#">BoyFriend</a>
+                </div>
+            </li>
+
+		  <li class="dropdown">
+						<a href="//">Shop By  Occation</a>
+
+                <div class="dropdown_list">
+                    <a href="#">Sports</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Arts</a>
+                    <a href="#">Others</a>
+                </div>
+            </li>
+
 				<li>
 					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
 
 		</li >
 						<li>
-			<a href="/contus/">CountUs</a>
+							<a href=""> Hello to {{request.session.user.username}}</a>
 		</li>
 
 
 	</ul>
 
 </nav>
-{%endblock%}
-{% block content %}
-
+</div>
 
 	<div class="continer">
 	<center>
@@ -44,5 +68,12 @@ phone:{{object.phone}}<br><br>
 
 	</center>
 	</div>
- {% endblock %}
+
+
+</body>
+</html>
+
+
+
+
 

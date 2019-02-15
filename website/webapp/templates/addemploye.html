@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 45%;
+    /*padding: 10px;*/
+    padding-top: 10%;
+ /*padding-left: 150px;*/
+    /*height: 300px;  Should be removed. Only for demonstration */
+    color: red;
+}
+
+/* Clear floats after the columns */
+/*.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}*/
+
+</style>
+</head>
+<body>
+<h2 style="padding-left: 400px;">wellcome Emplyoee Details Equal </h2>
+<center>
+
+<div class="row">
+
+  <div class="column" style="padding-left: 300px;" >
+
+  	{% for i in user%}
+  	EmplyoeeId:<td>{{i.empid}}</td><br><br><br>
+  	Email:<td>{{i.email}}</td>
+  </div>
+  <div class="column" style="padding-right: 350px;">
+  	Name:<td>{{i.name}}</td><br><br><br>
+  	contact:<td>{{i.phonenumber}}</td>
+  </div>
+</div>
+{% endfor%}
+</center>
+</body>
+</html>

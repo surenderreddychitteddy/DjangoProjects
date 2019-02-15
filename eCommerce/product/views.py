@@ -5,27 +5,15 @@ from django.shortcuts import render,redirect
 from models import Product
 from django.contrib .auth.models import User
 from django.contrib.auth import authenticate
-from models import UserProfile,Cart
+from models import UserProfile,Cart,Cake,Gift
 from form import CustModelForm
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
+
+
 def home(request):
 	return render(request,'product/base.html')
-def list_product(request):
-	# lp=Product.objects.all()
-	single_Category = request.GET.get("name")
-	if single_Category:
-		lp = Product.objects.filter(title=single_Category)
-	else:
-		lp=Product.objects.all()
-	return render(request,'product/list_product.html',{"lp":lp})
-def productprofile(request,pk):
-	try:
-		object=Product.objects.get(pk=pk)
-
-	except Exception as e:
-		raise e
-	return render(request,'product/productprofile.html',{"object":object})
 def SignUP(request):
 	msg=" "
 	if request.method=="POST":
@@ -35,17 +23,6 @@ def SignUP(request):
 		msg="create user "
 		
 	return render(request,'product/SignUP.html',{"msg":msg})
-def createproduct(request):
-	if request.method=="POST":
-		form=CustModelForm(request.POST,request.FILES)
-
-		if form.is_valid():
-			data=form.cleaned_data
-			p=Product(**data)
-			p.save()
-	form=CustModelForm()
-
-	return render(request,'product/createproduct.html',{"form":form})
 
 def Login(request):
 	msg=""
@@ -66,34 +43,25 @@ def Login(request):
 		else:
 			msg="login failed"
 	return render(request,'product/login.html',{"msg":msg})
-	# def instructor(request):
-# 	#import pdb; pdb.set_trace()
-# 	single_instructor = request.GET.get("name")
-# 	if single_instructor:
-# 		data = Instructor.objects.filter(name=single_instructor)
-# 	else:
-# 		data = Instructor.objects.all()
-# 	return render(request,"app1/list_instructor.html",{"data":data})
-
-
 
 def controlpage(request):
 
 	return render(request,'product/controlpage.html')
 def addcart(request,pk):
+
 	cart=Cart.objects.all()[0]
 	try:
-		pdt=Product.objects.get(pk=pk)
+		pdt=Cake.objects.get(pk=pk)
 	except Exception as e:
 		raise e
 	finally:
 		pass
-	if not pdt in cart.product.all():#many to many filed
-		cart.product.add(pdt)
+	if not pdt in cart.cake.all():#many to many filed
+		cart.cake.add(pdt)
 	else:
-		cart.product.remove(pdt)
+		cart.cake.remove(pdt)
 	new_totl=0.00
-	for i in cart.product.all():
+	for i in cart.cake.all():
 		new_totl+=float(i.price)
 	cart.total=new_totl
 	cart.save()
@@ -109,3 +77,29 @@ def viwecart(request):
 
 
 
+def cake(request):
+	cake_list=Cake.objects.all()
+	return render(request,'product/cake-list.html',{"cake_list":cake_list})
+
+
+def gift(request):
+	list_data=Gift.objects.all()
+	return render(request,'product/gift-list.html',{"list_data":list_data})
+
+def cakeprofile(request,pk):
+	try:
+		object=Cake.objects.get(pk=pk)
+
+	except Exception as e:
+		raise e
+	return render(request,'product/cakeprofile.html',{"object":object})
+
+def giftprofile(request,pk):
+	try:
+		object=Gift.objects.get(pk=pk)
+
+	except Exception as e:
+		raise e
+	return render(request,'product/profile.html',{"object":object})
+
+# 

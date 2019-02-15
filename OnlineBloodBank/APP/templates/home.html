@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+body{
+	padding: 0;
+            font-family: "Comic Sans MS",sans-serif;
+
+}
+
+nav{
+	background-color: seagreen;
+	overflow: hidden;
+	position: text;
+	top: 0;
+	width: 100%;
+	border-radius: 20px;
+}
+ul{
+	list-style-type: none;
+	margin: 0;
+	margin: 0;
+}
+ul li{
+	float: left;
+	}
+	li a{
+			text-align: center;
+			            text-decoration: none;
+            color: white;
+            padding: 14px 25px;
+            display: inline-block;
+            font-size: 20px;
+
+        }
+
+li a.active{
+	            background-color: #9F304B;
+
+}
+	
+	.column{
+		float :left;
+		width: 50%;
+
+	}
+	</style>
+
+</head>
+
+<body>
+	{% load static%}
+<nav>
+	<ul>
+   <li> <img src="{%static 'img/blood-donation-logo.jpg'%}"  width="250px" height="50px"></li>
+   <li>
+   	<a>ONLINE BLOOD BANK SYSTEM</a></li>
+   	   <li>
+   	<a style="color: black;">DONATE  BLOOD SAVE LIFE </a>
+
+   </li>
+<li>
+   	<a style="color: black;" href="/login_view/" class="active">DonarLoginPage</a>
+
+   </li>
+	</ul>
+</nav>
+<div class="column">
+	<h1>Donate Bload Save Life</h1>
+	<p>
+		"Tears of a Mother cannot  Save Her child.But YOUR BLOOD CAN."
+	</p>
+</div>
+<section>
+<div class="column">
+	<h1>Donate blood </h1>
+	<p>
+		Share the gift  of life love,give,live"
+	</p>
+</div>
+<center>
+ <h1>Posted by: pavan kalevaru</h1>
+  <p>Contact information: pavan:k5578@gmail.com
+  9603115578</p>
+</center>
+</body>
+</html>

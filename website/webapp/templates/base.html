@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/font-awesome.min.css">
+
+    <title></title>
+    <style>
+                          {% load static%}
+
+        body{
+            margin: 0;
+            font-family:Arial,sans-serif;
+               background-image: url("{% static 'img/bg1.jpg'%}");                     /*background-color: #090808;*/
+               color: white;
+
+        }
+
+
+        nav ul{
+            list-style-type: none;
+            /*padding: 100px;*/
+
+            margin: 0;
+            padding-left: 30%;
+        }
+        nav{
+            overflow: hidden;
+
+          padding :20px;
+        }
+        nav ul li{
+            float: left;
+                        background-color: #090808;
+
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            padding: 20px 24px;
+            display: block;
+        }
+        nav ul li a:hover{
+            background-color: #E06382;
+        }
+                li a.active{
+            background-color: #9F304B;
+}
+
+        .dropdown_list{
+            background-color: lightgray;
+            position: absolute; 
+            display: none; }
+.dropdown_list a{
+            color: black;
+        }
+
+        .dropdown_list a:hover{
+            color: white;
+        }
+
+        .dropdown:hover .dropdown_list{
+            display: block;
+        }
+.right {
+    width: 80%;
+    float: left;
+}
+.left{
+    width: 20%;
+    float: left;
+}
+        .button{
+            /*background-color: green;*/
+            color: #9F304B;
+            text-decoration: none;
+            border: none;
+            font-family: Arial,sans-serif;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .btn{
+            color: white;
+            text-decoration: none;
+            border: none;
+            font-size: 18px;
+            padding: 14px 50px;
+        }
+
+        .danger{
+            background-color: red;
+        }
+.main-footer{
+   /*background-color: #333333;*/
+    text-align: center;
+    padding-top: 100px;
+    /*color: #9F304B;*/
+color: white;
+
+}
+
+
+    </style>
+</head>
+<body>
+ <header>                      
+
+<i class="fa fa-phone" style="padding-left: 80%;padding-top: 20px;" ></i> <a href="tel:9603115578" >+(91) 9603115578</a> <br><br>
+
+    <h4 style="padding-left:168px;   color: red;"
+ >Pavan TechInfo  </h4>
+
+</header>                
+
+ <div class="left">   
+                      {% load static%}
+
+    </div>
+
+
+        <div class="right">   
+
+
+
+    <nav>
+<ul>
+            <li>
+                <a href="/home/" >Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">About</a>
+
+                <div class="dropdown_list">
+                    <a href="/Introduction/">Introduction</a>
+                    <a href="/Vision/">Vision&Mission</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Solution</a>
+
+                <div class="dropdown_list">
+                    <a href="/UMS/">University Management System</a>
+                </div>
+            </li>
+            
+            <!-- <li>
+                <a href="/Enquiry/">Enquiry</a>
+            </li> -->
+            <li>
+                <a href="/ContactUs/" class="active">Contact Us</a>
+            </li>
+                        <li>
+                <a href="/EmplyoeeLogin/">EmplyoeeLogin Us</a>
+            </li>
+
+        </ul>
+    </nav>
+</div >
+<div>
+    </div>
+    <br><br><br><br> <br><br>
+        {% block content%}
+
+    <div>
+        <center>
+             <h1 style="padding-top: 100px; color: #9F304B ">THE WAY OF SUCCES WHY YOU ARE WATTING<h1>
+ <button class="btn danger">JOINNOW</button>
+
+        </center>
+
+    </div>
+  {% endblock %}
+    <section>
+        <footer class="main-footer" ">
+        <h2><b>Copyright &copy; 2018 , Pavan Kalevaru </b></h2>
+        <p><b>All Rights Reserved :Pavan TechInfo </b></p>
+    </footer>
+</section>
+</div>
+</body>
+</html>

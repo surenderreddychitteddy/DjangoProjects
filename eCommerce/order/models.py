@@ -1,32 +1,37 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
-from product.models import Cart
-# from eCommerce.utils import unique_order_id_generator
-# from django.db.models.signals import pre_save
+from product.models import *
 
-# Create your models here.
-ORDER_STATUS_CHOICES = (
-    ('created', 'Created'),
-    ('paid', 'Paid'),
-    ('shipped', 'Shipped'),
-    ('refunded', 'Refunded'),
-)
 
 class Order(models.Model):
+    first_name = models.CharField(max_length=60)
+    last_name = models.CharField(max_length=60)
+    email = models.EmailField()
+    address = models.CharField(max_length=150)
+    postal_code = models.CharField(max_length=30)
+    city = models.CharField(max_length=100)
+    # created = models.DateTimeField(auto_now_add=True)
+    # updated = models.DateTimeField(auto_now=True)
+    paid = models.BooleanField(default=False)
 
-	order_id        =models.CharField(max_length=225)
-	cart_id=models.ForeignKey(Cart)
-	status          = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
-	shipping_total  = models.DecimalField(default=5.99, max_digits=100, decimal_places=2)
-	total           = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
+    # class Meta:
+    #     ordering = ('-created', )
 
-	def __str__(self):
-		 return self.order_id        
+    def __str__(self):
+        return 'Order {}'.format(self.id)
 
-# def pre_save_create_order_id(sender, instance, *args, **kwargs):
-#     if not instance.order_id:
-#         instance.order_id = unique_order_id_generator(instance)
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.items.all())
 
-# pre_save.connect(pre_save_create_order_id, sender=Order)
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    cake = models.ForeignKey(Cake, related_name='order_items', on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return '{}'.format(self.id)
+
+    def get_cost(self):
+        return self.price * self.quantity
+
