@@ -22,7 +22,6 @@ class Catagery(models.Model):
 		return self.name
 class Products(models.Model):
 	
-	catagery=models.ForeignKey(Catagery)
 
 	weight=models.CharField(max_length=225,null=True,blank=True)
 	img=models.ImageField(null=True,blank=True)
@@ -37,12 +36,14 @@ class Products(models.Model):
 
 
 class Cake(models.Model):
-	# catagery=models.ForeignKey(Catagery)
+	catagery=models.ForeignKey(Catagery)
 	weight=models.CharField(max_length=225)
 	img=models.ImageField(null=True,blank=True)
 	description=models.TextField()
 	price=models.DecimalField(decimal_places=2,max_digits=10)
 	message=models.CharField(max_length=225,null=True,blank=True)
+	available = models.BooleanField(default=True)
+
 
 
 	def __str__(self):

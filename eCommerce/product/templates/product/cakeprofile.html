@@ -4,26 +4,6 @@
 	  {% load static %}
 
 	<title></title>
-<!-- 		<style>
-		.right{
-            float: left;
-            width: 300px;
-            margin: 5px;
-            padding: 5px;
-            padding-left: 450px;
-		}
-		img{
-			            width: 300px;
-            height: auto;
-                        border: 2px solid green;
-
-		}
-		.left{
-            padding: 10px;
-            color: green;
-		}
-	</style>
- -->
 		<link rel="stylesheet" type="text/css" href="{%static 'css/s2.css'%}">
 
 </head>
@@ -34,41 +14,41 @@
 						<a href="//">Shop By  Category</a>
 
                 <div class="dropdown_list">
-                    <a href="/cake/">Cake</a>
-                    <a href="//">Chocolate</a>
-                    <a href="/Gift/">Gift</a>
-                </div>
+              {%for i in cake%}
+                     <a href="/Category/{{i.id}}/">
+                     {{ i.name }}</a>
+
+{% endfor %}                            </div>
             </li>
 
 
 
  				  <li class="dropdown">
-						<a href="//">Shop By  Relation</a>
+                        <a href="/cake/">Show  ALL PRODUCTS</a>
 
-                <div class="dropdown_list">
+<!--                 <div class="dropdown_list">
                     <a href="#">Parents</a>
                     <a href="#">GirlFriend</a>
                     <a href="#">BoyFriend</a>
                 </div>
-            </li>
+ -->            </li>
 
 		  <li class="dropdown">
-						<a href="//">Shop By  Occation</a>
+                        <a href="/viwecart/">ViweCart</a>
 
-                <div class="dropdown_list">
-                    <a href="#">Sports</a>
-                    <a href="#">Technology</a>
-                    <a href="#">Arts</a>
-                    <a href="#">Others</a>
-                </div>
-            </li>
+   </li>
+
+          <li class="">
+                        <a href="/logout/">Logout</a>
+
+   </li>
 
 				<li>
 					<a class="active" href="/show/{{request.session.user.id}}">Profile</a>
 
 		</li >
 						<li>
-							<a href=""> Hello to {{request.session.user.username}}</a>
+							<a href=""> Hello  {{request.session.user.username}}</a>
 		</li>
 
 

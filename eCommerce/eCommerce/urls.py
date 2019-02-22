@@ -29,8 +29,8 @@ urlpatterns = [
                 url(r'^contus/',TemplateView.as_view(template_name = 'product/contus.html')),
      
          url(r'^reg/',views.SignUP),
-         url(r'^login/',views.Login),
-        url(r'^home/',views.home),   
+         url(r'^login/',views.Login_view),
+        url(r'^$',views.home),   
 
                 url(r'^controlpage/',views.controlpage),   
   
@@ -46,11 +46,12 @@ urlpatterns = [
     url(r'^show/(?P<pk>[0-9]+)/', DetailView.as_view(model=UserProfile)),
 
          url(r'^cake/',views.cake),
-                  url(r'^Gift/',views.gift),
+         #          url(r'^Gift/',views.gift),
         url(r'^showcake/([0-9]+)/',views.cakeprofile),
-        url(r'^showgift/([0-9]+)/',views.giftprofile),
+        # url(r'^showgift/([0-9]+)/',views.giftprofile),
 
-    # url(r'^(?P<pk>[-\w]+)/', views.product_list, name='product_list_by_category'),
+        url(r'^Category/([0-9]+)/',views.product_list_catery),
+        url(r'^logout/',views.signout ),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
