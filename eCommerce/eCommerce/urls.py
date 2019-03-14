@@ -22,7 +22,6 @@ from product import  views
 from product.models import Product,Cart,UserProfile
 from django.views.generic import ListView,TemplateView,DetailView
 # from order import  views
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
         # url(r'^produts/',views.list_product),  
@@ -52,6 +51,7 @@ urlpatterns = [
 
         url(r'^Category/([0-9]+)/',views.product_list_catery),
         url(r'^logout/',views.signout ),
+        url(r'^ajax/validate_username/',views.ajaxusername,name="validate_username" ),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,7 +6,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 # from django.contrib.auth.hashers import make_password
-from models import DonarRegistation, BloodGroup
+from models import *
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -43,12 +43,13 @@ def login_view(request):
 					user_profile=user_profiles[0]
 					print user_profile
 					request.session['user']={"username":user.username,"id":user_profile.id}
+					request.session.set_expiry(150)
 					login(request, user)
 				return redirect("/dashbord/")
 			else:
 				return render(request,'login.html',{"msg":"login failed"})
 		return render(request,'login.html')
-@login_required
+@login_required(login_url="/login_view/")
 def CreateBloodGroup(request):
 	msg=" "
 
@@ -57,7 +58,7 @@ def CreateBloodGroup(request):
 		blood.save()
 		msg="BloodGroup created success fully"
 	return render(request,"CreateBloodGroup.html",{"msg":msg})
-@login_required	
+@login_required(login_url="/login_view/")
 def donarlist(request):
 	Group = request.GET.get("bloodGroup")
 	if Group:
@@ -65,16 +66,19 @@ def donarlist(request):
 	else:
 		blood = DonarRegistation.objects.all()
 	return render(request,"search.html",{"blood":blood})
-@login_required	
+
+
+
+@login_required(login_url="/login_view/")
 def dashbord(request):
 	
 	return render(request,'base.html')
-@login_required
+@login_required(login_url="/login_view/")
 def list(request):
 	group=BloodGroup.objects.all()
 
 	return render(request,'list.html',{"group":group})
-@login_required
+@login_required(login_url="/login_view/")
 def updateprofile(request,pk):
 	# bd=BloodGroup.object.all()
 	user =DonarRegistation.objects.get(pk=pk)
@@ -93,9 +97,29 @@ def updateprofile(request,pk):
 		# st_object.section_id=scection_obj
 
 	return render(request,"updateprofile.html",{"user":user})
+@login_required(login_url="/login_view/")
 
 def signout(request):
 	if request.method=="POST":
 		logout(request)
 		return redirect(Index)
 	return render(request,"logout.html")
+def  post_view(request):
+	msg_msg=""
+	bloodgroup=BloodGroup.objects.all()
+	if request.method=="POST":
+		blood=BloodGroup.objects.get(id=request.POST.get("blood_id"))
+		msg=Post(name=request.POST.get("location"),
+			     location=request.POST.get("location"),
+			    blood_id= blood)
+		msg.save()
+		msg_msg="create post "
+	return render(request,"post.html",{"bloodgroup":bloodgroup,"msg_msg":msg_msg})
+from datetime import date
+
+def post_list(request):
+	list=Post.objects.filter(date=date.today())
+	return render(request,"post_list.html",{"list":list})
+
+
+

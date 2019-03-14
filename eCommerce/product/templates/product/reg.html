@@ -3,6 +3,10 @@
 
             {% block content %}
 	{{msg}}
+	{% load static%}
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+
 	<center>
 
 <form method="post" name="myform" onsubmit="return validateForm()">
@@ -11,7 +15,7 @@
 			<tr>
 				<td>Username</td>
 				<td>
-					<input type="text" name="username" placeholder="Enter User Name ">
+					<input type="text" name="username" placeholder="Enter User Name " id="id_username">
 				</td>
 			</tr>
 		<tr>
@@ -48,6 +52,7 @@
 
 </form>
 </center>
+
 <script>
 	function validateForm() {
 var x=document.myform.username.value;
@@ -63,4 +68,27 @@ var y=document.myform.password.value;
 	}
 }
 </script>
+
+
+<script>
+    $("#id_username").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+
+    });
+  </script>
+
+
             {%endblock  %}

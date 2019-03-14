@@ -27,5 +27,7 @@ urlpatterns = [
         url(r'^list/',views.list ),
         url(r'^update/([0-9]+)/',views.updateprofile ),
         url(r'^logout/',views.signout ),
+        url(r'^post/',views.post_view ),
+        url(r'^post_list/',views.post_list ),
 
 ]

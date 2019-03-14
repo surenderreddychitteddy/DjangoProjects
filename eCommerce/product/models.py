@@ -78,3 +78,8 @@ class UserProfile(User):
 	phone=models.CharField(max_length=225)
 class abc(models.Model):
 	phone=models.CharField(max_length=225)
+class emp(models.Model):
+	name=models.CharField(max_length=225)
+	sal=models.DecimalField(decimal_places=2,max_digits=10)
+	def __str__(self):
+		return self.name,self.sal

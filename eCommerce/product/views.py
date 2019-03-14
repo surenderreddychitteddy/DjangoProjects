@@ -1,6 +1,4 @@
- # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render,redirect
 from models import Product
 from django.contrib .auth.models import User
@@ -10,6 +8,7 @@ from form import CustModelForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -138,3 +137,9 @@ def signout(request):
 		logout(request)
 		return redirect(home)
 	return render(request,"product/logout.html")
+def ajaxusername(request):
+	# username=request.GET.get("username")
+	data={
+	"is_token":User.objects.filter(username_iexact="pavan").exists()
+	}
+	return JsonResponse(data)

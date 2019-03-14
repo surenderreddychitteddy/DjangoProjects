@@ -48,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ # 'django_session_timeout.middleware.SessionTimeoutMiddleware',
+
 ]
 
 ROOT_URLCONF = 'OnlineBloodBank.urls'
@@ -119,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# SESSION_EXPIRE_SECONDS = 600  # 600 seconds = 5 minutes
+
+# SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+
+# LOGIN_URL = '/login_view/'
+LOGIN_URL = '/login_view/'
