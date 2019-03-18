@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <p>Uploaded files:</p>
+  <ul>
+    {% for obj in doc %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}Download</a>
+        <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+                <small>(description: {{ obj.description }})</small>
+
+      </li>
+    {% endfor %}
+  </ul>
+          <a href="/uploadfile/">uploadfile</a>
+
+</body>
+</html>

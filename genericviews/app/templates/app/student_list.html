@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<table>
+	<tr>
+	<th>StudentName</th>
+		<th>age</th>
+	<th>college</th>
+	<th>update</th>
+	<th>delete</th>
+</tr>
+<tr>
+{% for i in object_list%}
+<td>{{i.studentName}}</td>
+<td>{{i.age}}</td>
+<td>{{i.college}}</td>
+<td>
+	<a href="/updatestudent/{{i.id}}">update</a>
+</td>
+<td>
+	<a href="/deletestudent/{{i.id}}">delette</a>
+</td>
+
+	</tr>
+{%endfor%}
+</table>
+</body>
+</html>
